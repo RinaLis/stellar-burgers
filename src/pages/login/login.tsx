@@ -2,12 +2,16 @@ import { FC, SyntheticEvent, useEffect, useState } from 'react';
 import { LoginUI } from '@ui-pages';
 import { useDispatch, useSelector } from '../../services/store';
 import { clearUserError, fetchLoginUser, userErrorSelector } from '@slices';
+import { useForm } from '../../hooks';
 
 export const Login: FC = () => {
   const dispatch = useDispatch();
   const error = useSelector(userErrorSelector);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
+  const { inputValues, handleChange } = useForm({
+    email: '',
+    password: ''
+  });
 
   useEffect(() => {
     dispatch(clearUserError());
@@ -15,16 +19,15 @@ export const Login: FC = () => {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    dispatch(fetchLoginUser({ email, password }));
+    dispatch(fetchLoginUser(inputValues));
   };
 
   return (
     <LoginUI
       errorText={error?.toString()}
-      email={email}
-      setEmail={setEmail}
-      password={password}
-      setPassword={setPassword}
+      email={inputValues.email}
+      password={inputValues.password}
+      onChange={handleChange}
       handleSubmit={handleSubmit}
     />
   );

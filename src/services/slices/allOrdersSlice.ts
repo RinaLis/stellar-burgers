@@ -54,7 +54,7 @@ const allOrdersSlice = createSlice({
 
 export const fetchAllOrders = createAsyncThunk(
   'orders/getAllOrders',
-  async () => getFeedsApi()
+  getFeedsApi
 );
 
 export const { getFeedState } = allOrdersSlice.selectors;

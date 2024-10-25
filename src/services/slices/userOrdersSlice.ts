@@ -54,7 +54,7 @@ const userOrdersSlice = createSlice({
 
 export const fetchUserOrders = createAsyncThunk(
   'userOrders/getUserOrders',
-  async () => getOrdersApi()
+  getOrdersApi
 );
 
 export const { getUserOrdersSelector } = userOrdersSlice.selectors;

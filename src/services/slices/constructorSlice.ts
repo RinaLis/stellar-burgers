@@ -1,5 +1,10 @@
-import { createSlice, createAsyncThunk, nanoid } from '@reduxjs/toolkit';
-import { TConstructorIngredient, TOrder } from '@utils-types';
+import {
+  createSlice,
+  createAsyncThunk,
+  nanoid,
+  PayloadAction
+} from '@reduxjs/toolkit';
+import { TConstructorIngredient, TIngredient, TOrder } from '@utils-types';
 import { orderBurgerApi } from '@api';
 
 export interface constructorState {
@@ -28,14 +33,17 @@ const constructorSlice = createSlice({
   name: 'burgerConstructor',
   initialState,
   reducers: {
-    addIngredient: (state, { payload }) => {
-      if (payload.type === 'bun') {
-        state.constructorItems.bun = payload;
-      } else {
-        state.constructorItems.ingredients.push({
-          ...payload,
-          id: nanoid()
-        });
+    addIngredient: {
+      reducer: (state, { payload }: PayloadAction<TConstructorIngredient>) => {
+        if (payload.type === 'bun') {
+          state.constructorItems.bun = payload;
+        } else {
+          state.constructorItems.ingredients.push(payload);
+        }
+      },
+      prepare: (indredient: TIngredient) => {
+        const key = nanoid();
+        return { payload: { ...indredient, id: key } };
       }
     },
     removeIngredient: (state, action) => {
@@ -98,7 +106,7 @@ const constructorSlice = createSlice({
 
 export const fetchAddOrder = createAsyncThunk(
   'constructor/addOrder',
-  (data: string[]) => orderBurgerApi(data)
+  orderBurgerApi
 );
 
 export { initialState as constructorInitialState };

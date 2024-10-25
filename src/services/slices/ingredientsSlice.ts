@@ -31,7 +31,7 @@ const ingredientsSlice = createSlice({
       })
       .addCase(fetchIngredients.fulfilled, (state, { payload }) => {
         state.isIngredientsLoading = false;
-        state.ingredients = payload;
+        state.ingredients = payload.data;
         state.error = null;
       })
       .addCase(fetchIngredients.rejected, (state, { error }) => {
@@ -44,7 +44,7 @@ const ingredientsSlice = createSlice({
 
 export const fetchIngredients = createAsyncThunk(
   'ingredients/getIngredients',
-  async () => getIngredientsApi()
+  getIngredientsApi
 );
 
 export const { getIngredientsState } = ingredientsSlice.selectors;

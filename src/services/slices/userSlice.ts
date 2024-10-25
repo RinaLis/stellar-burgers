@@ -120,14 +120,11 @@ export const userSlice = createSlice({
   }
 });
 
-export const fetchLoginUser = createAsyncThunk(
-  'user/login',
-  (loginData: TLoginData) => loginUserApi(loginData)
-);
+export const fetchLoginUser = createAsyncThunk('user/login', loginUserApi);
 
 export const fetchRegisterUser = createAsyncThunk(
   'user/register',
-  (registerData: TRegisterData) => registerUserApi(registerData)
+  registerUserApi
 );
 
 export const fetchLogoutUser = createAsyncThunk('user/logout', logoutApi);
@@ -136,7 +133,7 @@ export const fetchGetUser = createAsyncThunk('user/get', getUserApi);
 
 export const fetchUpdateUser = createAsyncThunk(
   'user/updateUser',
-  (user: Partial<TRegisterData>) => updateUserApi(user)
+  updateUserApi
 );
 
 export const {
