@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from 'react';
+import { FC, memo } from 'react';
 import ReactDOM from 'react-dom';
 
 import { TCenterProps } from './type';

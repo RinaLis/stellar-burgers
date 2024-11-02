@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { resetPasswordApi } from '@api';
 import { ResetPasswordUI } from '@ui-pages';
-import { useForm } from '../../hooks';
+import { useForm } from '@hooks';
 
 export const ResetPassword: FC = () => {
   const navigate = useNavigate();

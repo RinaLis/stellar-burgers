@@ -1,4 +1,4 @@
-export function getCookie(name: string): string | undefined {
+export const getCookie = (name: string): string | undefined => {
   const matches = document.cookie.match(
     new RegExp(
       '(?:^|; )' +
@@ -8,13 +8,13 @@ export function getCookie(name: string): string | undefined {
     )
   );
   return matches ? decodeURIComponent(matches[1]) : undefined;
-}
+};
 
-export function setCookie(
+export const setCookie = (
   name: string,
   value: string,
   props: { [key: string]: string | number | Date | boolean } = {}
-) {
+) => {
   props = {
     path: '/',
     ...props
@@ -40,8 +40,8 @@ export function setCookie(
     }
   }
   document.cookie = updatedCookie;
-}
+};
 
-export function deleteCookie(name: string) {
+export const deleteCookie = (name: string) => {
   setCookie(name, '', { expires: -1 });
-}
+};

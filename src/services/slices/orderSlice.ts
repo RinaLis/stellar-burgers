@@ -39,6 +39,8 @@ const orderSlice = createSlice({
   }
 });
 
+export { initialState as orderInitialState };
+
 export const fetchGetOrder = createAsyncThunk(
   'feed/getOrder',
   getOrderByNumberApi

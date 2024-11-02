@@ -60,6 +60,7 @@ const constructorSlice = createSlice({
     },
 
     moveIngredientDown: (state, action) => {
+      console.log(action);
       [
         state.constructorItems.ingredients[action.payload],
         state.constructorItems.ingredients[action.payload + 1]
@@ -69,6 +70,7 @@ const constructorSlice = createSlice({
       ];
     },
     moveIngredientUp: (state, action) => {
+      console.log(action.payload);
       [
         state.constructorItems.ingredients[action.payload],
         state.constructorItems.ingredients[action.payload - 1]

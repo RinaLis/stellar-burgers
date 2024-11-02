@@ -42,6 +42,8 @@ const ingredientsSlice = createSlice({
   }
 });
 
+export { initialState as ingredientsInitialState };
+
 export const fetchIngredients = createAsyncThunk(
   'ingredients/getIngredients',
   getIngredientsApi
