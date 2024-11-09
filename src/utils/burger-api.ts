@@ -2,8 +2,6 @@ import { getCookie } from './cookie';
 import { fetchWithRefresh, request } from './request';
 import { TIngredient, TOrder, TUser } from './types';
 
-// const URL = process.env.BURGER_API_URL;
-
 type TIngredientsData = {
   data: TIngredient[];
 };

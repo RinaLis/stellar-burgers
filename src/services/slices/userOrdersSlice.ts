@@ -52,6 +52,8 @@ const userOrdersSlice = createSlice({
   }
 });
 
+export { initialState as userOrdersInitialState };
+
 export const fetchUserOrders = createAsyncThunk(
   'userOrders/getUserOrders',
   getOrdersApi

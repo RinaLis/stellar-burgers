@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { IngredientDetailsUI, Preloader } from '@ui';
 import { useParams } from 'react-router-dom';
 import { getIngredientsState } from '@slices';
-import { useSelector } from '../../services/store';
+import { useSelector } from '@store';
 
 export const IngredientDetails: FC = () => {
   /** TODO: взять переменную из стора */

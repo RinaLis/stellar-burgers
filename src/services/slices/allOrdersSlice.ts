@@ -52,6 +52,8 @@ const allOrdersSlice = createSlice({
   }
 });
 
+export { initialState as allOrdersInitialState };
+
 export const fetchAllOrders = createAsyncThunk(
   'orders/getAllOrders',
   getFeedsApi

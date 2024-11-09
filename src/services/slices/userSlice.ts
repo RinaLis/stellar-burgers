@@ -3,13 +3,11 @@ import {
   loginUserApi,
   logoutApi,
   registerUserApi,
-  TLoginData,
-  TRegisterData,
   updateUserApi
 } from '@api';
+import { deleteCookie, setCookie } from '@cookie';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
-import { deleteCookie, setCookie } from '../../utils';
 
 export interface UserState {
   isLoading: boolean;
@@ -17,7 +15,7 @@ export interface UserState {
   error: string | null;
 }
 
-const initialState: UserState = {
+export const initialState: UserState = {
   isLoading: false,
   user: null,
   error: null
@@ -135,6 +133,8 @@ export const fetchUpdateUser = createAsyncThunk(
   'user/updateUser',
   updateUserApi
 );
+
+export { initialState as userInitialState };
 
 export const {
   getUserState,

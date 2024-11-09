@@ -1,9 +1,9 @@
-import { FC, SyntheticEvent, useEffect, useState } from 'react';
+import { FC, SyntheticEvent, useEffect } from 'react';
 import { RegisterUI } from '@ui-pages';
 
-import { useDispatch, useSelector } from '../../services/store';
+import { useDispatch, useSelector } from '@store';
 import { clearUserError, fetchRegisterUser, userErrorSelector } from '@slices';
-import { useForm } from '../../hooks';
+import { useForm } from '@hooks';
 
 export const Register: FC = () => {
   const dispatch = useDispatch();

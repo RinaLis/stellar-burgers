@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styles from './app-header.module.css';
 import { Link } from 'react-router-dom';
 import { TAppHeaderUIProps } from './type';

@@ -1,8 +1,8 @@
-import { FC, SyntheticEvent, useEffect, useState } from 'react';
+import { FC, SyntheticEvent, useEffect } from 'react';
 import { LoginUI } from '@ui-pages';
-import { useDispatch, useSelector } from '../../services/store';
+import { useDispatch, useSelector } from '@store';
 import { clearUserError, fetchLoginUser, userErrorSelector } from '@slices';
-import { useForm } from '../../hooks';
+import { useForm } from '@hooks';
 
 export const Login: FC = () => {
   const dispatch = useDispatch();

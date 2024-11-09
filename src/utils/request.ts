@@ -1,6 +1,6 @@
 import { setCookie } from './cookie';
 
-const BASE_URL = process.env.BURGER_API_URL;
+export const BASE_URL = process.env.BURGER_API_URL;
 
 type TServerResponse<T> = {
   success: boolean;

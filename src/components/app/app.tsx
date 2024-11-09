@@ -15,7 +15,7 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 
 import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 import ProtectedRoute from '../protected-route/protected-route';
-import { useDispatch } from '../../services/store';
+import { useDispatch } from '@store';
 import { useEffect } from 'react';
 import { fetchGetUser, fetchIngredients } from '@slices';
 import { Center } from '../center-block';
